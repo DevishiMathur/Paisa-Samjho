@@ -1005,7 +1005,11 @@ export default function Home() {
                 title="Leaky Bucket"
                 text={ui.inflationText}
                 tag={ui.inflation}
-                onClick={() => setTab("inflation")}
+                onClick={() => {
+                  setInflationYear(0);
+                  setInflationChoice(null);
+                  setTab("inflation");
+                }}
               />
 
               <GameCard
@@ -1013,7 +1017,10 @@ export default function Home() {
                 title="Family Shield"
                 text={ui.familyText}
                 tag={ui.nomination}
-                onClick={() => setTab("nomination")}
+                onClick={() => {
+                  setNominee(null);
+                  setTab("nomination");
+                }}
               />
 
               <GameCard
@@ -1474,6 +1481,50 @@ export default function Home() {
           />
 
           <div className="inflationCard">
+            <div className="scenarioStory">
+              <b>
+                {language === "Hindi"
+                  ? "एक छोटी कहानी"
+                  : "Ek chhoti kahani"}
+              </b>
+              <p>
+                {language === "Hindi"
+                  ? "सीमा ने घर के डिब्बे में ₹1,000 रखे हैं। वह सोचती है कि कुछ साल बाद भी इस रकम से उतना ही राशन आएगा। लेकिन समय के साथ चीज़ें महँगी होती हैं। स्लाइडर बढ़ाकर देखें कि उसकी खरीदने की ताकत कैसे घटती है।"
+                  : "Seema ne ghar ke dabbe mein ₹1,000 rakhe hain. Use lagta hai ki kuch saal baad bhi itne hi paise se utna ration aa jayega. Par waqt ke saath cheezein mehngi hoti hain. Slider aage karke dekho ki uski buying power kaise kam hoti hai."}
+              </p>
+            </div>
+
+            <div className="scenarioQuestion">
+              <h3>
+                {language === "Hindi"
+                  ? "महँगाई के बाद क्या ₹1,000 से उतना ही सामान मिलेगा?"
+                  : "Mehngai ke baad kya ₹1,000 se utna hi samaan milega?"}
+              </h3>
+              {inflationChoice === null ? (
+                <div className="choiceGrid">
+                  <button className="success" onClick={() => setInflationChoice(true)}>
+                    ✅ {language === "Hindi" ? "हाँ" : "Haan"}
+                  </button>
+                  <button className="danger" onClick={() => setInflationChoice(false)}>
+                    ❌ {language === "Hindi" ? "नहीं" : "Nahi"}
+                  </button>
+                </div>
+              ) : (
+                <div className={"choiceOutcome " + (inflationChoice ? "riskOutcome" : "safeOutcome")}>
+                  <span className="outcomeBadge">{inflationChoice ? "💡" : "🌾"}</span>
+                  <p>
+                    {inflationChoice
+                      ? language === "Hindi"
+                        ? "असल में, महँगाई के कारण वही ₹1,000 कम सामान खरीद पाएगा। स्लाइडर से सीमा की खरीदने की ताकत में बदलाव देखें।"
+                        : "Asal mein, mehngai ki wajah se same ₹1,000 kam samaan kharidega. Slider se Seema ki buying power mein badlav dekho."
+                      : language === "Hindi"
+                      ? "सही! चीज़ों की कीमत बढ़ने पर वही ₹1,000 कम सामान खरीदता है। स्लाइडर से सीमा की खरीदने की ताकत में बदलाव देखें।"
+                      : "Sahi! Cheezein mehngi hone par same ₹1,000 kam samaan kharidta hai. Slider se Seema ki buying power mein badlav dekho."}
+                  </p>
+                </div>
+              )}
+            </div>
+
             <div className="yearBadge">
               {language === "Hindi"
                 ? "साल"
@@ -1506,11 +1557,10 @@ export default function Home() {
                 min="0"
                 max="10"
                 value={inflationYear}
-                onChange={(e) =>
-                  setInflationYear(
-                    Number(e.target.value)
-                  )
-                }
+                onChange={(e) => {
+                  setInflationYear(Number(e.target.value));
+                  setInflationChoice(null);
+                }}
               />
 
               <span>
@@ -1592,11 +1642,11 @@ export default function Home() {
             <h3>
               {inflationYear === 0
                 ? language === "Hindi"
-                  ? "स्लाइडर को आगे बढ़ाएँ।"
-                  : "Slider ko aage badhao."
+                  ? "स्लाइडर बढ़ाएँ और देखें कि समय के साथ खरीदने की ताकत कैसे बदलती है।"
+                  : "Slider aage karke dekho ki waqt ke saath buying power kaise badalti hai."
                 : language === "Hindi"
-                ? `5 साल की महँगाई के बाद, ₹1,000 की खरीदने की ताकत लगभग ₹${purchasingPower} जैसी दिखती है।`
-                : `5 saal ki mehngai ke baad, ₹1,000 ki kharidne ki taakat lagbhag ₹${purchasingPower} jaisi dikhti hai.`}
+                  ? `${inflationYear} साल की महँगाई के बाद, ₹1,000 की खरीदने की ताकत लगभग ₹${purchasingPower} जैसी दिखती है।`
+                  : `${inflationYear} saal ki mehngai ke baad, ₹1,000 ki kharidne ki taakat lagbhag ₹${purchasingPower} jaisi dikhti hai.`}
             </h3>
 
             <button
@@ -1654,7 +1704,7 @@ export default function Home() {
               </div>
             </div>
 
-            {!nominee ? (
+            {nominee === null ? (
               <>
                 <h2>
                   {language === "Hindi"
@@ -1664,8 +1714,14 @@ export default function Home() {
 
                 <p>
                   {language === "Hindi"
-                    ? "कहानी का अगला कदम आप तय करेंगे।"
-                    : "Story ka next step aap decide karenge."}
+                    ? "रमेश जी की किराने की दुकान कई सालों से परिवार की आय का सहारा है। वे अपने बैंक खाते और निवेश के कागज़ व्यवस्थित कर रहे हैं। परिवार को याद नहीं कि nominee का नाम दर्ज है या नहीं, इसलिए वे कागज़ जाँचकर सही जानकारी लिखना चाहते हैं।"
+                    : "Ramesh Ji ki kirane ki dukaan saalon se parivaar ki aamdani ka sahara hai. Woh bank aur investment ke papers sambhal rahe hain. Family ko yaad nahi ki nominee ka naam register hai ya nahi, isliye woh papers check karke sahi details note karna chahte hain."}
+                </p>
+
+                <p>
+                  {language === "Hindi"
+                    ? "आप तय करें: क्या रमेश जी ने खाते में nominee दर्ज किया था?"
+                    : "Aap faisla karein: kya Ramesh Ji ne account mein nominee register kiya tha?"}
                 </p>
 
                 <div className="choiceGrid">

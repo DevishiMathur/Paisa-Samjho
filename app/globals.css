@@ -21,3 +21,25 @@
 .suggestions button::marker {
   content: none !important;
 }
+
+.scenarioStory,
+.scenarioQuestion {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #e8dcc7;
+  border-radius: 18px;
+  background: #fff8ed;
+}
+
+.scenarioStory p,
+.scenarioQuestion p {
+  margin: 8px 0 0;
+  color: #626b60;
+  line-height: 1.6;
+}
+
+.scenarioQuestion h3 {
+  margin: 0 0 14px;
+  font-size: 20px;
+  line-height: 1.35;
+}
