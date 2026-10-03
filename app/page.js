@@ -371,6 +371,8 @@ export default function Home() {
 
   const audioTextRef = useRef("");
   const audioLangRef = useRef("hi-IN");
+  const speechRequestRef = useRef(0);
+  const speechTimerRef = useRef(null);
   const recognitionRef = useRef(null);
   const recognitionActiveRef = useRef(false);
 
@@ -378,33 +380,67 @@ export default function Home() {
   const speechLang = language === "Hindi" ? "hi-IN" : "en-IN";
 
   function stopSpeech() {
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-    window.speechSynthesis.cancel();
+    if (typeof window === "undefined") return;
+    speechRequestRef.current += 1;
+    window.clearTimeout(speechTimerRef.current);
+    window.speechSynthesis?.cancel();
     setAudioState("idle");
   }
 
   function playSpeech(text, lang = speechLang) {
-    if (
-      typeof window === "undefined" ||
-      !window.speechSynthesis ||
-      !text
-    )
-      return;
+    if (typeof window === "undefined" || !text?.trim()) return;
 
-    window.speechSynthesis.cancel();
+    const synth = window.speechSynthesis;
+    const requestId = speechRequestRef.current + 1;
+    speechRequestRef.current = requestId;
+    window.clearTimeout(speechTimerRef.current);
+    synth?.cancel();
 
     audioTextRef.current = text;
     audioLangRef.current = lang;
 
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = lang;
+    speakWithBrowserVoice(text, lang, requestId);
+  }
+
+  function speakWithBrowserVoice(text, lang, requestId) {
+    if (
+      typeof window.SpeechSynthesisUtterance !== "function" ||
+      !window.speechSynthesis
+    ) return;
+    const synth = window.speechSynthesis;
+    const voices = synth.getVoices();
+    const languagePrefix = lang.split("-")[0].toLowerCase();
+    const matchingVoice =
+      voices.find((voice) => voice.lang.toLowerCase() === lang.toLowerCase()) ||
+      voices.find((voice) => voice.lang.toLowerCase().startsWith(`${languagePrefix}-`));
+    const hindiVoice = voices.find((voice) => voice.lang.toLowerCase().startsWith("hi-"));
+    const englishVoice =
+      voices.find((voice) => voice.lang.toLowerCase() === "en-in") ||
+      voices.find((voice) => voice.lang.toLowerCase().startsWith("en-"));
+    const isHindiText = /[\u0900-\u097f]/.test(text);
+    const selectedVoice = isHindiText ? hindiVoice : matchingVoice || englishVoice;
+    const u = new window.SpeechSynthesisUtterance(text);
+
+    // Keep the original Devanagari text and let the browser resolve hi-IN
+    // when its voice list is still loading or has no exact Hindi match.
+    u.lang = selectedVoice?.lang || lang;
+    if (selectedVoice) u.voice = selectedVoice;
     u.rate = 0.88;
+    u.onstart = () => {
+      if (speechRequestRef.current === requestId) setAudioState("playing");
+    };
+    u.onend = () => {
+      if (speechRequestRef.current === requestId) setAudioState("idle");
+    };
+    u.onerror = () => {
+      if (speechRequestRef.current === requestId) setAudioState("idle");
+    };
 
-    u.onstart = () => setAudioState("playing");
-    u.onend = () => setAudioState("idle");
-    u.onerror = () => setAudioState("idle");
-
-    window.speechSynthesis.speak(u);
+    // Chromium can drop utterances queued in the same tick as cancel().
+    speechTimerRef.current = window.setTimeout(() => {
+      if (speechRequestRef.current !== requestId) return;
+      synth.speak(u);
+    }, 100);
   }
 
   function pauseSpeech() {
