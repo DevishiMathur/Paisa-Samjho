@@ -1,0 +1,17 @@
+Project Description — Paisa Samjho
+
+Paisa Samjho is an interactive, voice-first financial literacy platform designed to make basic financial concepts easy to understand for elderly people and users from Tier 2 and Tier 3 cities in India.
+
+Instead of teaching through complicated financial terminology, the platform uses simple language, everyday Indian examples, voice interaction, and decision-based simulations. Users learn by making choices and seeing the consequences of those choices.
+
+The platform covers concepts such as NAV, inflation, volatility, diversification, nomination, and financial scams through interactive experiences like:
+
+*  **Market Storm** — users invest virtual money and experience how panic-selling or holding during market changes can affect their money.
+*  **Leaky Bucket** — demonstrates how inflation reduces purchasing power over time.
+*  **Family Shield** — explains the importance of nomination through a family/business scenario.
+*  **Scam Dojo** — users face realistic scam situations and choose how they would respond. Their decisions affect what happens next, helping them practice identifying red flags.
+*  **Voice-first learning** — users can ask questions and receive simple spoken explanations.
+*  **AI Doubt Assistant** — users can ask financial-literacy questions and receive conversational, easy-to-understand responses.
+*  **Adaptive learning** — scenarios are designed around user actions rather than simply displaying information, so different decisions can lead to different outcomes.
+
+The goal is to make financial literacy **accessible, practical, and memorable**, especially for people who may find traditional finance apps and educational material difficult to understand.

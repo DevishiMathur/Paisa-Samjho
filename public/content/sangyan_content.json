@@ -1,0 +1,396 @@
+{
+  "meta": {
+    "title": { "en": "Scam Rehearsal Dojo", "hi": "स्कैम अभ्यास केंद्र" },
+    "persona": "Shopkeeper in a Tier-3 town, Hindi-first, uses WhatsApp daily",
+    "disclaimer": {
+      "en": "This is a practice simulation, not financial advice. All people, numbers and messages are fictional.",
+      "hi": "यह सिर्फ़ अभ्यास के लिए बनाया गया सिमुलेशन है, निवेश की सलाह नहीं। सभी नाम, नंबर और संदेश काल्पनिक हैं।"
+    },
+    "privacy": {
+      "en": "Nothing you type or choose is saved or sent anywhere.",
+      "hi": "आप जो भी चुनते या लिखते हैं, वह कहीं सेव या भेजा नहीं जाता।"
+    },
+    "advisorName": "Rohit Sir (fictional)"
+  },
+
+  "steps": [
+    {
+      "id": 1,
+      "scene": { "en": "A message arrives from an unknown number.", "hi": "एक अनजान नंबर से मैसेज आता है।" },
+      "advisorMessage": {
+        "en": "Hello! I'm Rohit, a stock market analyst. I got your number from an investor group. Sending you a free tip today, take a look.",
+        "hi": "नमस्ते! मैं रोहित, शेयर बाज़ार का एनालिस्ट हूँ। आपका नंबर मुझे एक निवेशक ग्रुप से मिला। आज की एक फ्री टिप भेज रहा हूँ, देखिए।"
+      },
+      "options": [
+        {
+          "id": "1a", "safe": false,
+          "text": { "en": "Okay, send it.", "hi": "जी, भेजिए।" },
+          "outcome": {
+            "en": "He sends a tip. Replying told him your number is active and you are interested.",
+            "hi": "वह एक टिप भेज देता है। जवाब देने से उसे पता चल गया कि आपका नंबर चालू है और आप दिलचस्पी रखते हैं।"
+          }
+        },
+        {
+          "id": "1b", "safe": false,
+          "text": { "en": "Who are you? Where did you get my number?", "hi": "आप कौन हैं? मेरा नंबर कहाँ से मिला?" },
+          "outcome": {
+            "en": "He gives a made-up story. Staying in the chat keeps the door open for him.",
+            "hi": "वह एक गढ़ी हुई कहानी सुना देता है। चैट में बने रहना उसके लिए रास्ता खुला रखता है।"
+          }
+        },
+        {
+          "id": "1c", "safe": true,
+          "text": { "en": "I don't take advice from strangers. Blocking and reporting you.", "hi": "मैं अनजान लोगों की सलाह नहीं लेता। आपको ब्लॉक करके रिपोर्ट कर रहा हूँ।" },
+          "outcome": {
+            "en": "Scam ends here. Blocking and reporting is the safest first move.",
+            "hi": "स्कैम यहीं रुक जाता है। ब्लॉक और रिपोर्ट करना सबसे सुरक्षित पहला कदम है।"
+          }
+        }
+      ],
+      "redFlag": {
+        "title": { "en": "Unsolicited contact", "hi": "बिना बुलाए संपर्क" },
+        "explain": {
+          "en": "Registered advisors do not usually message strangers with 'free tips'. A stranger who contacts you first is a warning sign.",
+          "hi": "रजिस्टर्ड सलाहकार आमतौर पर अनजान लोगों को ‘फ्री टिप’ नहीं भेजते। जो अजनबी ख़ुद आपसे संपर्क करे, वह चेतावनी का संकेत है।"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "scene": { "en": "The next day, he writes again.", "hi": "अगले दिन वह फिर मैसेज करता है।" },
+      "advisorMessage": {
+        "en": "Remember yesterday's tip? It gave 8% profit! Look at this screenshot from my group members. You could have joined too.",
+        "hi": "कल की टिप याद है? उसमें 8% फ़ायदा हुआ! मेरे ग्रुप के लोगों का ये स्क्रीनशॉट देखिए। आप भी जुड़ सकते थे।"
+      },
+      "options": [
+        {
+          "id": "2a", "safe": false,
+          "text": { "en": "Wow! Give me more tips.", "hi": "वाह! और टिप दीजिए।" },
+          "outcome": {
+            "en": "He feels your trust growing. One lucky tip has now become 'proof'.",
+            "hi": "उसे आपका भरोसा बढ़ता दिखता है। एक सही निकली टिप अब ‘सबूत’ बन गई।"
+          }
+        },
+        {
+          "id": "2b", "safe": false,
+          "text": { "en": "How can I join your group?", "hi": "आपके ग्रुप से कैसे जुड़ूँ?" },
+          "outcome": {
+            "en": "You just asked for the next step of his script.",
+            "hi": "आपने ख़ुद उसकी स्क्रिप्ट का अगला कदम माँग लिया।"
+          }
+        },
+        {
+          "id": "2c", "safe": true,
+          "text": { "en": "Screenshots can be faked, and one correct guess proves nothing. I won't act on tips.", "hi": "स्क्रीनशॉट नकली हो सकते हैं, और एक सही अंदाज़ा कुछ साबित नहीं करता। मैं टिप पर पैसा नहीं लगाऊँगा।" },
+          "outcome": {
+            "en": "Scam ends. You refused to treat a screenshot as proof.",
+            "hi": "स्कैम रुक जाता है। आपने स्क्रीनशॉट को सबूत मानने से इनकार किया।"
+          }
+        }
+      ],
+      "redFlag": {
+        "title": { "en": "Proof by screenshot", "hi": "स्क्रीनशॉट वाला ‘सबूत’" },
+        "explain": {
+          "en": "Screenshots are easy to fake. Scammers also send different tips to different people, so some of them 'come true' by chance.",
+          "hi": "स्क्रीनशॉट नकली बनाना आसान है। ठग अलग-अलग लोगों को अलग-अलग टिप भेजते हैं, तो कुछ अपने-आप सही निकल जाती हैं।"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "scene": { "en": "He invites you to a paid group.", "hi": "वह आपको पेड ग्रुप में बुलाता है।" },
+      "advisorMessage": {
+        "en": "The VIP group has only 50 seats. Fee is ₹2,000, and guaranteed returns of up to 30% every month. Only till tonight!",
+        "hi": "VIP ग्रुप में सिर्फ़ 50 सीट हैं। फ़ीस ₹2,000 है, और हर महीने 30% तक पक्का रिटर्न। सिर्फ़ आज रात तक!"
+      },
+      "options": [
+        {
+          "id": "3a", "safe": false,
+          "text": { "en": "Okay, how do I send the money?", "hi": "ठीक है, पैसे कैसे भेजूँ?" },
+          "outcome": {
+            "en": "He sends a UPI ID. You are now paying for 'access' to a promise nobody can keep.",
+            "hi": "वह एक UPI आईडी भेजता है। आप अब एक ऐसे वादे के लिए पैसे दे रहे हैं जो कोई निभा नहीं सकता।"
+          }
+        },
+        {
+          "id": "3b", "safe": false,
+          "text": { "en": "30% sounds great. Let me think and tell you.", "hi": "30% तो बहुत अच्छा है। सोचकर बताता हूँ।" },
+          "outcome": {
+            "en": "He pushes harder: 'Only two seats left!' Pressure is the tool, not the offer.",
+            "hi": "वह और दबाव डालता है: ‘सिर्फ़ दो सीट बची हैं!’ असली हथियार दबाव है, ऑफ़र नहीं।"
+          }
+        },
+        {
+          "id": "3c", "safe": true,
+          "text": { "en": "Nobody can guarantee returns. Send your SEBI registration number, I will check it myself.", "hi": "पक्का रिटर्न कोई नहीं दे सकता। अपना SEBI रजिस्ट्रेशन नंबर भेजिए, मैं ख़ुद जाँचूँगा।" },
+          "outcome": {
+            "en": "Scam ends. He either dodges or sends a number that will not match. Checking yourself is the key habit.",
+            "hi": "स्कैम रुक जाता है। वह या तो बात टालेगा या ऐसा नंबर देगा जो मेल नहीं खाएगा। ख़ुद जाँचना ही असली आदत है।"
+          }
+        }
+      ],
+      "redFlag": {
+        "title": { "en": "Guaranteed returns + urgency + fee", "hi": "पक्का रिटर्न + जल्दबाज़ी + फ़ीस" },
+        "explain": {
+          "en": "No investment can guarantee monthly profit. 'Only tonight' and 'only 50 seats' are pressure tricks to stop you from thinking.",
+          "hi": "कोई निवेश हर महीने पक्के मुनाफ़े की गारंटी नहीं दे सकता। ‘सिर्फ़ आज रात’ और ‘सिर्फ़ 50 सीट’ आपको सोचने से रोकने की चालें हैं।"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "scene": { "en": "You hesitate. He gets pushy.", "hi": "आप झिझकते हैं। वह दबाव बढ़ाता है।" },
+      "advisorMessage": {
+        "en": "We are SEBI registered, I will send the number later. First send the fee. And don't tell anyone at home, or I will give your seat to someone else.",
+        "hi": "हम SEBI रजिस्टर्ड हैं, नंबर बाद में भेजूँगा। पहले फ़ीस भेजिए। और ये बात घर में किसी को मत बताइए, वरना आपकी सीट किसी और को दे दूँगा।"
+      },
+      "options": [
+        {
+          "id": "4a", "safe": false,
+          "text": { "en": "Sent the ₹2,000.", "hi": "₹2,000 भेज दिए।" },
+          "outcome": {
+            "en": "₹2,000 is gone. He now knows you will pay on request, and he will ask for more.",
+            "hi": "₹2,000 चले गए। अब उसे पता है कि आप माँगने पर पैसे दे देते हैं, और वह और माँगेगा।"
+          }
+        },
+        {
+          "id": "4b", "safe": false,
+          "text": { "en": "Okay, I won't tell my family.", "hi": "ठीक है, घर में किसी को नहीं बताऊँगा।" },
+          "outcome": {
+            "en": "Now you are alone with him. Secrecy cuts you off from the people who could stop you.",
+            "hi": "अब आप उसके साथ अकेले हैं। गोपनीयता आपको उन लोगों से काट देती है जो आपको रोक सकते थे।"
+          }
+        },
+        {
+          "id": "4c", "safe": true,
+          "text": { "en": "No registration number, no payment. I'm going to talk to my family first.", "hi": "रजिस्ट्रेशन नंबर नहीं तो पैसा नहीं। मैं पहले घर में बात करूँगा।" },
+          "outcome": {
+            "en": "Scam ends. Talking to someone you trust is one of the strongest protections.",
+            "hi": "स्कैम रुक जाता है। किसी भरोसेमंद से बात करना सबसे मज़बूत सुरक्षा में से एक है।"
+          }
+        }
+      ],
+      "redFlag": {
+        "title": { "en": "Vague authority + secrecy", "hi": "धुँधला रजिस्ट्रेशन + गोपनीयता" },
+        "explain": {
+          "en": "Saying 'registered' without a number you can check means nothing. A genuine opportunity never needs to be hidden from your family.",
+          "hi": "बिना जाँचने लायक नंबर के ‘रजिस्टर्ड’ कह देने का कोई मतलब नहीं। कोई सच्चा मौका परिवार से छिपाने की ज़रूरत नहीं रखता।"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "scene": { "en": "He asks you to install an app.", "hi": "वह आपसे ऐप इंस्टॉल करवाता है।" },
+      "advisorMessage": {
+        "en": "Now download this app (sending the link). I will watch your screen and teach you. Just turn on the screen sharing app.",
+        "hi": "अब ये ऐप डाउनलोड कीजिए (लिंक भेज रहा हूँ)। मैं आपकी स्क्रीन देखकर सिखा दूँगा, बस स्क्रीन-शेयरिंग ऐप चालू कर लीजिए।"
+      },
+      "options": [
+        {
+          "id": "5a", "safe": false,
+          "text": { "en": "Downloaded it from the link.", "hi": "लिंक से डाउनलोड कर लिया।" },
+          "outcome": {
+            "en": "The app is a fake that only shows made-up numbers. It may also take permissions on your phone.",
+            "hi": "ये ऐप नकली है जो सिर्फ़ गढ़े हुए आँकड़े दिखाता है। यह आपके फ़ोन की अनुमतियाँ भी माँग सकता है।"
+          }
+        },
+        {
+          "id": "5b", "safe": false,
+          "text": { "en": "Give me a minute, stay on the call.", "hi": "ज़रा रुकिए, आप कॉल पर रहिए।" },
+          "outcome": {
+            "en": "Staying on the call lets him guide you step by step. He controls the pace.",
+            "hi": "कॉल पर रहने से वह आपको क़दम-क़दम पर चलाता है। रफ़्तार उसके हाथ में रहती है।"
+          }
+        },
+        {
+          "id": "5c", "safe": true,
+          "text": { "en": "I won't install apps from links, and I won't share my screen.", "hi": "मैं लिंक से कोई ऐप नहीं डालूँगा और स्क्रीन भी शेयर नहीं करूँगा।" },
+          "outcome": {
+            "en": "Scam ends. Refusing links and screen sharing protects your bank apps and OTPs.",
+            "hi": "स्कैम रुक जाता है। लिंक और स्क्रीन-शेयरिंग से इनकार करना आपके बैंक ऐप और OTP को बचाता है।"
+          }
+        }
+      ],
+      "redFlag": {
+        "title": { "en": "Link app + screen sharing", "hi": "लिंक वाला ऐप + स्क्रीन शेयरिंग" },
+        "explain": {
+          "en": "Apps from links are not checked by any store. Screen sharing lets someone see your bank apps, messages and OTPs.",
+          "hi": "लिंक वाले ऐप को कोई स्टोर जाँचता नहीं। स्क्रीन शेयर करने से कोई भी आपके बैंक ऐप, मैसेज और OTP देख सकता है।"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "scene": { "en": "The app shows a big profit.", "hi": "ऐप में बड़ा मुनाफ़ा दिखता है।" },
+      "advisorMessage": {
+        "en": "Congratulations! The app shows ₹1,20,000 profit. To withdraw, first deposit 20% tax, that is ₹24,000.",
+        "hi": "बधाई हो! ऐप में ₹1,20,000 का मुनाफ़ा दिख रहा है। निकालने के लिए पहले 20% टैक्स, यानी ₹24,000 जमा कीजिए।"
+      },
+      "options": [
+        {
+          "id": "6a", "safe": false,
+          "text": { "en": "Okay, sending ₹24,000.", "hi": "ठीक है, ₹24,000 भेज रहा हूँ।" },
+          "outcome": {
+            "en": "The money is gone and a new 'fee' appears. This is how victims lose far more than they started with.",
+            "hi": "पैसा चला गया और एक नई ‘फ़ीस’ आ जाती है। इसी तरह लोग शुरुआत से कहीं ज़्यादा गँवा देते हैं।"
+          }
+        },
+        {
+          "id": "6b", "safe": false,
+          "text": { "en": "I don't have it. Should I borrow and send?", "hi": "मेरे पास नहीं है। उधार लेकर भेज दूँ?" },
+          "outcome": {
+            "en": "He says yes immediately. Borrowing to pay a scammer turns a loss into a debt.",
+            "hi": "वह तुरंत हाँ कहता है। ठग को देने के लिए उधार लेना नुक़सान को कर्ज़ बना देता है।"
+          }
+        },
+        {
+          "id": "6c", "safe": true,
+          "text": { "en": "I will pay nothing. I'm calling 1930 and reporting on cybercrime.gov.in.", "hi": "मैं कुछ नहीं भेजूँगा। मैं 1930 पर कॉल करके cybercrime.gov.in पर शिकायत कर रहा हूँ।" },
+          "outcome": {
+            "en": "Scam ends. Stop paying, keep your screenshots and report quickly.",
+            "hi": "स्कैम रुक जाता है। पैसे भेजना बंद करें, स्क्रीनशॉट सँभालकर रखें और जल्दी शिकायत करें।"
+          }
+        }
+      ],
+      "redFlag": {
+        "title": { "en": "Pay to withdraw", "hi": "निकालने के लिए पहले पैसा" },
+        "explain": {
+          "en": "Genuine platforms deduct charges from your own money. Being asked to deposit extra money from outside to unlock a withdrawal is a classic scam sign.",
+          "hi": "असली प्लेटफ़ॉर्म आपकी ही रकम में से शुल्क काटते हैं। निकासी खोलने के लिए बाहर से अलग पैसा जमा करवाना ठगी का जाना-पहचाना संकेत है।"
+        }
+      }
+    }
+  ],
+
+  "jargon": [
+    {
+      "id": "sebi_registered",
+      "term": { "en": "SEBI registered", "hi": "SEBI रजिस्टर्ड" },
+      "explain": {
+        "en": "Just as a doctor needs a licence from the medical council, someone giving investment advice should be registered with SEBI. Ask for the number and check it yourself on SEBI's official website.",
+        "hi": "जैसे डॉक्टर के पास मेडिकल काउंसिल का लाइसेंस होता है, वैसे ही निवेश की सलाह देने वाले का SEBI में रजिस्टर्ड होना ज़रूरी है। नंबर माँगिए और SEBI की आधिकारिक वेबसाइट पर ख़ुद जाँचिए।"
+      }
+    },
+    {
+      "id": "guaranteed_returns",
+      "term": { "en": "Guaranteed returns", "hi": "पक्का रिटर्न" },
+      "explain": {
+        "en": "No farmer can promise how much a crop will give before the season. Markets are the same, so anyone promising fixed profit is not being honest.",
+        "hi": "कोई किसान मौसम से पहले पक्का नहीं कह सकता कि फ़सल कितनी होगी। बाज़ार भी वैसा ही है, इसलिए जो पक्के मुनाफ़े का वादा करे, वह सच नहीं बोल रहा।"
+      }
+    },
+    {
+      "id": "tip",
+      "term": { "en": "Tip", "hi": "टिप" },
+      "explain": {
+        "en": "A tip is like a rumour heard at a tea stall: 'this price will go up'. Putting your money on a rumour you cannot check is a gamble, not an investment.",
+        "hi": "टिप चाय की दुकान पर सुनी अफ़वाह जैसी है: ‘इसका भाव बढ़ेगा’। जिस बात को आप जाँच नहीं सकते, उस पर पैसा लगाना निवेश नहीं, जुआ है।"
+      }
+    },
+    {
+      "id": "demat",
+      "term": { "en": "Demat account", "hi": "डीमैट खाता" },
+      "explain": {
+        "en": "A demat account is like a locker where your shares are kept in electronic form, just as a bank account keeps your money. You open it yourself with proper KYC, and no stranger can open it for you.",
+        "hi": "डीमैट खाता एक लॉकर जैसा है जिसमें आपके शेयर इलेक्ट्रॉनिक रूप में रखे जाते हैं, जैसे बैंक खाता आपका पैसा रखता है। इसे आप ख़ुद KYC के साथ खोलते हैं, कोई अजनबी आपके लिए नहीं खोल सकता।"
+      }
+    },
+    {
+      "id": "screen_sharing",
+      "term": { "en": "Screen sharing", "hi": "स्क्रीन शेयरिंग" },
+      "explain": {
+        "en": "Sharing your screen is like handing a stranger the key to your house. They can see your bank apps, messages and OTPs while you use them.",
+        "hi": "स्क्रीन शेयर करना किसी अजनबी को अपने घर की चाबी देने जैसा है। जब आप फ़ोन चलाते हैं, वह आपके बैंक ऐप, मैसेज और OTP सब देख सकता है।"
+      }
+    },
+    {
+      "id": "withdrawal_fee",
+      "term": { "en": "Withdrawal fee / tax to withdraw", "hi": "निकालने की फ़ीस / टैक्स" },
+      "explain": {
+        "en": "It is like being told your lottery has won but you must first send a fee. Genuine places take charges out of your own money, they do not ask you to send extra money first.",
+        "hi": "यह ऐसा है जैसे कोई कहे कि आपकी लॉटरी निकली है, बस पहले फ़ीस भेजिए। असली जगहें आपकी ही रकम में से शुल्क काटती हैं, पहले अलग से पैसा नहीं माँगतीं।"
+      }
+    },
+    {
+      "id": "otp",
+      "term": { "en": "OTP", "hi": "OTP" },
+      "explain": {
+        "en": "An OTP is the last lock on your bank account, a code only you should know. Nobody honest, not even a bank, will ever ask you to read it out.",
+        "hi": "OTP आपके बैंक खाते का आख़िरी ताला है, एक कोड जो सिर्फ़ आपको पता होना चाहिए। कोई ईमानदार व्यक्ति, यहाँ तक कि बैंक भी, इसे बोलकर बताने को नहीं कहता।"
+      }
+    },
+    {
+      "id": "upi_id",
+      "term": { "en": "UPI ID", "hi": "UPI आईडी" },
+      "explain": {
+        "en": "A UPI ID is like your bank account's nickname, and money sent to it usually cannot be taken back easily. Always be sure who you are paying before you press send.",
+        "hi": "UPI आईडी आपके बैंक खाते का छोटा नाम है, और उस पर भेजा पैसा आमतौर पर आसानी से वापस नहीं आता। भेजने से पहले पक्का करें कि आप किसे पैसे दे रहे हैं।"
+      }
+    }
+  ],
+
+  "recapQuiz": [
+    {
+      "id": "q1",
+      "question": {
+        "en": "Someone promises guaranteed 30% returns every month. What should you do?",
+        "hi": "कोई हर महीने 30% पक्के रिटर्न का वादा करता है। आप क्या करेंगे?"
+      },
+      "options": [
+        { "en": "Join quickly before seats run out", "hi": "सीटें ख़त्म होने से पहले जल्दी जुड़ जाऊँगा" },
+        { "en": "Treat it as a red flag and walk away", "hi": "इसे ख़तरे का संकेत मानकर दूर हो जाऊँगा" },
+        { "en": "Invest a small amount to test", "hi": "टेस्ट के लिए थोड़ी रकम लगाऊँगा" }
+      ],
+      "correct": 1,
+      "explain": {
+        "en": "No honest investment can guarantee monthly profit. Starting small still feeds the scam, because the next step is always a bigger ask.",
+        "hi": "कोई ईमानदार निवेश हर महीने मुनाफ़े की गारंटी नहीं दे सकता। थोड़ा लगाना भी स्कैम को खाद देता है, क्योंकि अगला कदम हमेशा बड़ी माँग होता है।"
+      }
+    },
+    {
+      "id": "q2",
+      "question": {
+        "en": "An app says you have a big profit but asks for a fee before you can withdraw. What now?",
+        "hi": "ऐप में बड़ा मुनाफ़ा दिख रहा है पर निकालने से पहले फ़ीस माँगी जा रही है। अब क्या करें?"
+      },
+      "options": [
+        { "en": "Pay the fee, it is only a small part", "hi": "फ़ीस भर दूँ, यह तो थोड़ा-सा हिस्सा है" },
+        { "en": "Stop, pay nothing, keep screenshots and report", "hi": "रुकूँ, कुछ न भेजूँ, स्क्रीनशॉट रखूँ और शिकायत करूँ" },
+        { "en": "Ask a friend to lend me the money", "hi": "दोस्त से उधार माँगकर भर दूँ" }
+      ],
+      "correct": 1,
+      "explain": {
+        "en": "Paying more never unlocks the money. Reporting quickly gives the best chance of help.",
+        "hi": "और पैसे देने से रकम कभी नहीं खुलती। जल्दी शिकायत करने से मदद मिलने की संभावना सबसे ज़्यादा रहती है।"
+      }
+    },
+    {
+      "id": "q3",
+      "question": {
+        "en": "An 'advisor' asks you to install an app from a link and share your screen. What is the safe answer?",
+        "hi": "कोई ‘सलाहकार’ लिंक से ऐप डालने और स्क्रीन शेयर करने को कहता है। सुरक्षित जवाब क्या है?"
+      },
+      "options": [
+        { "en": "Do both, he is only teaching me", "hi": "दोनों कर दूँ, वह तो सिर्फ़ सिखा रहा है" },
+        { "en": "Install it but skip the screen sharing", "hi": "ऐप डाल लूँ पर स्क्रीन शेयर न करूँ" },
+        { "en": "Refuse both", "hi": "दोनों से मना कर दूँ" }
+      ],
+      "correct": 2,
+      "explain": {
+        "en": "Link apps are unchecked and can be harmful on their own, and screen sharing exposes your bank apps and OTPs. Refuse both.",
+        "hi": "लिंक वाले ऐप अनजाँचे होते हैं और अपने-आप में नुक़सानदेह हो सकते हैं, और स्क्रीन शेयरिंग से आपके बैंक ऐप और OTP दिख जाते हैं। दोनों से मना करें।"
+      }
+    }
+  ],
+
+  "ifItHappened": {
+    "title": { "en": "If this happens to you", "hi": "अगर आपके साथ ऐसा हो जाए" },
+    "steps": [
+      { "en": "Stop sending money and stop replying.", "hi": "पैसे भेजना और जवाब देना बंद करें।" },
+      { "en": "Call 1930 as soon as possible and report on cybercrime.gov.in.", "hi": "जल्द से जल्द 1930 पर कॉल करें और cybercrime.gov.in पर शिकायत दर्ज करें।" },
+      { "en": "Tell your bank immediately and keep screenshots, numbers and payment details.", "hi": "तुरंत अपने बैंक को बताएँ और स्क्रीनशॉट, नंबर और भुगतान का ब्योरा सँभालकर रखें।" },
+      { "en": "Tell someone in your family. You are not at fault, these scams fool many people.", "hi": "परिवार में किसी को बताएँ। आपकी ग़लती नहीं है, ये स्कैम बहुत लोगों को फँसाते हैं।" }
+    ],
+    "verifyBeforeShipping": "Confirm the helpline number and website names are current before the final submission."
+  }
+}
